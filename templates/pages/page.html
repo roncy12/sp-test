@@ -1,0 +1,64 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<section class="page">
+
+
+    {{#or (if page.title "==" "Our Story")(if page.title "==" "Custom Printing & Design")}}
+        <div class="banner-page-heading-container">
+            <img src="{{cdn (concat 'https://cdn11.bigcommerce.com/s-n4601wl9o4/images/stencil/original/image-manager/' (concat  (lowercase (dashcase page.title)) '-banner.png'))}}" alt="{{page.title}}">
+            {{#unless theme_settings.hide_page_heading }}
+                <h1 class="page-heading">{{#if page.title "==" "Custom Printing & Design"}}Custom Printing &<br/> Design{{else}}{{ page.title }}{{/if}}</h1>
+            {{/unless}}
+        </div>
+    {{else}}
+        {{#unless theme_settings.hide_page_heading }}
+            <h1 class="page-heading">{{ page.title }}</h1>
+        {{/unless}}
+    {{/or}}
+
+
+    {{#if page.sub_pages}}
+    <nav class="navBar navBar--sub">
+        <ul class="navBar-section account-navigation">
+        {{#each page.sub_pages}}
+            <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+        {{/each}}
+        </ul>
+    </nav>
+    {{/if}}
+
+    {{{region name="page_builder_content"}}}
+
+    <div class="page-content page-content--centered">
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            <p>{{{page.content}}}</p>
+        {{/replace}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+</section>
+
+{{/partial}}
+
+{{> layout/base}}
+
+<script>
+    $('.Custom-printing-design .page-content p').each(function(){
+        if($(this).is(':empty')){
+            $(this).addClass('nocontent');
+        }
+    });
+</script>

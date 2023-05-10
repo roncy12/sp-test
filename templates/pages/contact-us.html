@@ -1,0 +1,46 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<section class="page">
+
+    <div class="banner-page-heading-container">
+        <img src="{{cdn (concat 'https://cdn11.bigcommerce.com/s-n4601wl9o4/images/stencil/original/image-manager/' (concat  (lowercase (dashcase page.title)) '-banner.png'))}}" alt="{{page.title}}">
+        {{#unless theme_settings.hide_contact_us_page_heading }}
+            <h1 class="page-heading">{{page.title}} </h1>
+        {{/unless}}
+    </div>
+
+
+    {{#if page.sub_pages}}
+        <nav class="navBar navBar--sub">
+            <ul class="navBar-section account-navigation">
+                {{#each page.sub_pages}}
+                    <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </nav>
+    {{/if}}
+
+    <div id="contact-us-page" class="page-content page-content--centered">
+        {{#if forms.contact.success}}
+            <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+        {{else}}
+            <p>{{{page.content}}}</p>
+
+        <div class="contact-form-container">
+            <div class="contact-form-content">
+                {{> components/page/contact-us-form}}                
+            </div>
+        </div>
+   
+
+        {{/if}}
+
+    </div>
+
+</section>
+
+{{/partial}}
+
+{{> layout/base}}

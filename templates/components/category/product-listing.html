@@ -1,0 +1,66 @@
+{{inject 'noCompareMessage' (lang 'compare.no_compare')}}
+
+{{#if category.products}}
+    {{> components/products/filter sort=pagination.category.sort}}
+    <div class="rightside-pagination">
+        {{> components/common/paginator pagination.category}}
+    </div>
+    
+    <div {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}}>
+        {{#if theme_settings.product_list_display_mode '===' 'grid'}}
+            {{#if settings.data_tag_enabled}}
+                {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+            {{else}}
+                {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
+            {{/if}}
+        {{else}}
+            {{#if settings.data_tag_enabled}}
+                {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+            {{else}}
+                {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
+            {{/if}}
+        {{/if}}
+        
+
+
+    </div>
+    <div class="float-left">
+        <p class="displays_count font-weight-bold"><span class="category_count"><span class="pagination_count">{{pagination.category.end}}</span> <span class="not-pagination-count">{{category.total_products}}</span></span> OF {{category.total_products}} PRODUCTS</p>
+    </div>
+    <div class="float-right">
+        {{> components/common/paginator pagination.category}}
+    </div>
+{{else}}
+    {{#if category.search_error}}
+        <p>{{lang 'search.errorMessage'}}</p>
+    {{else}}
+        <p data-no-products-notification
+           role="alert"
+           aria-live="assertive"
+           tabindex="-1"
+        >
+            {{lang 'categories.no_products'}}
+        </p>
+    {{/if}}
+{{/if}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $("#facetedSearch-navList--orientation li a .list--title").each(function(index){ 
+     $('span.tooltip-cat.Orientation').append('<b>' + $(this).text() + ':</b> Description of the option <br>');
+    });
+    $("#facetedSearch-navList--durability li a .list--title").each(function(index){ 
+     $('span.tooltip-cat.Durability').append('<b>' + $(this).text() + ':</b> Description of the option <br>');
+    });
+
+    if($(".pagination-list").find("li").length > 0){
+        console.log("may laman");
+        $(".pagination_count").show();
+        $(".not-pagination-count").hide();
+    }else{
+        console.log("wala laman");
+        $(".pagination_count").hide();
+        $(".not-pagination-count").show();
+    }
+
+</script>

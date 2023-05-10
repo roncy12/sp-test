@@ -1,0 +1,187 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+{{inject 'productId' product.id}}
+
+{{#partial "page"}}
+
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    {{#each product.shipping_messages}}
+        {{> components/common/alert/alert-info message}}
+    {{/each}}
+
+    <div>
+        {{> aoc-custom/components/products/product-view}}
+
+        {{{region name="product_below_content"}}}
+
+        {{#if product.videos.list.length}}
+            {{> components/products/videos product.videos}}
+        {{/if}}
+
+        {{#all settings.show_product_reviews theme_settings.show_product_reviews (if theme_settings.show_product_details_tabs '!==' true)}}
+            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+        {{/all}}
+        <div class="related-container">
+            {{> components/products/tabs}}
+        </div>
+    </div>
+
+    {{> components/products/schema}}
+
+    <div class="dropdown-wrapper">
+        <div class="ae-dropdown dropdown">
+            <div class="ae-select">
+                <span class="ae-select-content"></span>
+                <i class="material-icons down-icon">keyboard_arrow_down</i>
+            </div>
+            <ul class="dropdown-menu ae-hide">
+                <li class='selected'><a>Dr</a></li>
+                <li><a>Mr</a></li>
+                <li><a>Miss</a></li>
+                <li><a>Mrs</a></li>
+                <li><a>Ms</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+{{/partial}}
+{{> layout/base}}
+
+
+<script>
+$('div#tab-description p').each(function(index) {
+    var brCount = $(this).find('br').length;
+    if (brCount > 2) {
+        $(this).addClass('convert-ul');
+    }
+
+    if(index==0){
+        $(this).addClass('spec-caption');
+    }
+});
+$('.convert-ul').each(function() {
+    var ul = $('<ul></ul>');
+    $(this).html().split('<br>').forEach(function(item) {
+        ul.append('<li>' + item + '</li>');
+    });
+    $(this).replaceWith(ul);
+});
+</script>
+
+<script>
+if ($('#tab-specifications table').length && $('#tab-specifications ul').length) {
+    var container = $('<div class="table-specification-content"></div>');
+    container.append($('#tab-specifications table'));
+    container.append($('#tab-specifications ul'));
+    $('#tab-specifications').append(container);
+}
+if($('div[data-product-option-change] .form-field').length > 0){
+    $('div[data-product-option-change] h2').show();
+}
+</script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css"> -->
+<!-- <script>
+    $(function () {
+        $(".productView-thumbnails").slick({
+            "infinite": false,
+            "mobileFirst": true,
+            "dots": false,
+            "accessibility": false,
+            "slidesToShow": 5,
+            "slidesToScroll": 5,
+            "vertical": true,
+            "verticalSwiping": true,
+            responsive: [
+                {
+                    breakpoint: 900,
+                    settings: {
+                        "infinite": false,
+                        "mobileFirst": true,
+                        "dots": false,
+                        "accessibility": false,
+                        "slidesToShow": 5,
+                        "slidesToScroll": 5,
+                        "vertical": true,
+                        "verticalSwiping": true,
+                    }
+                },
+                {
+                    breakpoint: 0,
+                    settings: {
+                        "slidesToShow": 4,
+                        "slidesToScroll": 4,
+                        "vertical": false,
+                        "verticalSwiping": false
+                    }
+                }
+            ]
+            
+        })
+    });
+</script> -->
+
+<!-- <script>
+    var Prod_price = $(".price-and-stock span[data-product-price-without-tax].price").text();
+    var priceWithoutDollarSign = Prod_price.replace("$", "");
+
+    var discount = 100; // set the discount percentage
+    var discountAmount = priceWithoutDollarSign * (discount / 100); // calculate the discount amount
+    var finalPrice = priceWithoutDollarSign - discountAmount; // calculate the final price after discount
+
+    console.log("Original price:" + Prod_price);
+    console.log("Discount: " + discount + "%");
+    console.log("Discount amount: $" + discountAmount);
+    console.log("Final price: $" + finalPrice);
+
+</script> -->
+
+<!-- <script>
+    // Get the original price from the table
+var origPrice = parseFloat($(".productView-product .table-tbody tr:last td:last").text().replace("Orig Price: $", ""));
+
+// Get the discount percentage from the table
+var discountText = $(".productView-product .table-tbody tr:nth-child(2) td:nth-child(2)").text();
+var discount = parseInt(discountText.replace("and get ", "").replace("% off", ""));
+
+// Calculate the discount amount and final price
+var discountAmount = origPrice * (discount / 100);
+var finalPrice = origPrice - discountAmount;
+
+console.log("Original price: $" + origPrice);
+console.log("Discount: " + discount + "%");
+console.log("Discount amount: $" + discountAmount);
+console.log("Final price: $" + finalPrice);
+</script> -->
+
+<script>
+    $(document).ready(function(){
+    //   $('.productView_custom-tabs-content #customed-product-tabs ul').each(function () {
+    //     var $select = $('<select />');
+    //     $(this).find('a').each(function () {
+    //         var $option = $('<option />');
+    //         $option.attr('value', $(this).attr('href')).html($(this).html());
+    //         $select.append($option);
+    //         });
+    //         $(this).replaceWith($select);
+    //     });
+        $("div#customed-product-tabs .tabs").click(function(){
+            // $("ul.tabs.product-tabs-parent .tab:not(.is-active)").show();
+            $(this).toggleClass('list-open');
+        });
+    });
+</script>

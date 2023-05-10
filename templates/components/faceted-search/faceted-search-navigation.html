@@ -1,0 +1,36 @@
+<div class="accordion-nav-clear-holder">
+    <!-- {{#unless start_collapsed}} is-open{{/unless}} -->
+    <button type="button"
+         class="accordion-navigation toggleLink is-open"
+         data-collapsible="#facetedSearch-content--{{dashcase facet}}"
+         aria-label="{{lang 'search.faceted.toggleSection' title=title}}"
+         aria-expanded="true"
+    >
+        <span class="accordion-title">
+            {{#or (if title "==" "Orientation")(if title "==" "Durability")}}  {{title}} <span class="title-icon"><i class="far fa-question-circle"></i><span class="tooltip-cat {{title}}"></span></span> {{else}} {{title}}  {{/or}}
+        </span>
+
+        <span>
+            <svg class="icon accordion-indicator toggleLink-text toggleLink-text--off">
+                <use href="#icon-add" />
+            </svg>
+
+            <span class="icon accordion-indicator toggleLink-text toggleLink-text--off" id="categicon" style="display: none;">
+                <i class="fa-solid fa-chevron-down"></i>
+            </span>
+            
+
+            <svg class="icon accordion-indicator toggleLink-text toggleLink-text--on">
+                <use href="#icon-remove" />
+            </svg>
+
+            <span class="icon accordion-indicator toggleLink-text toggleLink-text--on" id="categicon" style="display: none;">
+                <i class="fa-solid fa-chevron-up"></i>
+            </span>
+
+        </span>
+    </button>
+    {{#if selected}}
+        <a href="{{remove_url}}" class="facetedSearch-clearLink" data-faceted-search-facet>{{lang 'search.faceted.clear'}}</a>
+    {{/if}}
+</div>

@@ -1,0 +1,117 @@
+{{#if children}}
+<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+   href="{{url}}"
+   data-collapsible="navPages-{{id}}"
+>
+    {{name}}
+    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+        <svg><use href="#icon-chevron-down" /></svg>
+    </i>
+</a>
+<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+    <div class="shop_allLink">
+        <h2>{{name}} <span>Shop All</span>
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </h2>
+        <a href="{{url}}" class="to-abso">{{name}}</a>
+    </div>
+
+    <ul class="navPage-subMenu-list">
+        <li class="navPage-subMenu-item" style="display: none;">
+            <a class="navPage-subMenu-action navPages-action"
+               href="{{url}}"
+               aria-label="{{lang 'category.view_all.name' category=name}}"
+            >
+                {{lang 'category.view_all.name' category=name}}
+            </a>
+        </li>
+
+        {{#if id "===" "26"}}
+            {{#each children}}
+                <li class="navPage-subMenu-item" style="{{#if id '==' '34'}}order: 0;{{else if id '==' '36'}} order: 3; {{else if id '==' '35'}} order: 2 {{/if}}"">
+                    {{#unless "===" children}}
+                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}"
+                        href="{{url}}"
+                        aria-label="{{name}}"
+                    >
+                        <img src="{{cdn (concat 'https://store-n4601wl9o4.mybigcommerce.com/content/sub-categories/' (concat  (lowercase (dashcase name)) '.png'))}}" alt="{{name}}">
+                        {{#if name "==" "Custom Badge Cards"}}
+                        <p class="category_name">Custom Badge <br>Cards</p>
+                        {{else if name "==" "Badge Card Sets" }}
+                        <p class="category_name">Badge Card<br>Sets</p>
+                        {{else if name "==" "Keychain Badge Cards" }}
+                        <p class="category_name">Keychain <br>Badge Cards</p>
+                        {{else}}
+                        <p class="category_name">{{name}}</p>
+                        {{/if}}
+                    </a>
+                    {{/unless}}
+                </li>
+            {{/each}}
+
+            <li class="navPage-subMenu-item" style="order: 1;">
+                <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}"
+                    href="{{url}}"
+                    aria-label="{{name}}"
+                >
+                    <img src="{{cdn 'https://store-n4601wl9o4.mybigcommerce.com/content/sub-categories/diy-badge-cards.png'}}" alt="{{name}}">
+                    <p class="category_name">DIY Badge <br>Cards</p>
+                </a>
+            </li>
+        {{else}}
+        {{#each children}}
+            <li class="navPage-subMenu-item">
+                {{#if children}}
+                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+                       href="{{url}}"
+                       aria-label="{{name}}"
+                    >
+                        {{name}}
+                        <span class="collapsible-icon-wrapper"
+                            data-collapsible="navPages-{{id}}"
+                            data-collapsible-disabled-breakpoint="medium"
+                            data-collapsible-disabled-state="open"
+                            data-collapsible-enabled-state="closed"
+                        >
+                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                                <svg><use href="#icon-chevron-down" /></svg>
+                            </i>
+                        </span>
+                    </a>
+                    <ul class="navPage-childList" id="navPages-{{id}}">
+                        {{#each children}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                               href="{{url}}"
+                               aria-label="{{name}}"
+                            >
+                                {{name}}
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}"
+                       href="{{url}}"
+                       aria-label="{{name}}"
+                    >   
+                        {{#or (if id "==" "26") (if id "==" "40")(if id "==" "39")(if id "==" "38")}}
+                            <img src="{{cdn (concat 'https://store-n4601wl9o4.mybigcommerce.com/content/sub-categories/' (concat  (lowercase (dashcase name)) '.png'))}}" alt="{{name}}">
+                        {{/or}}
+                        <p class="category_name">{{name}}</p>
+                    </a>
+                {{/if}}
+            </li>
+        {{/each}}
+
+        {{/if}}
+    </ul>
+</div>
+{{else}}
+<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+   href="{{url}}"
+   aria-label="{{name}}"
+>
+    {{name}}
+</a>
+{{/if}}

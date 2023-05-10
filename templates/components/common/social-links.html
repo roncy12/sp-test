@@ -1,0 +1,38 @@
+{{#if social_media}}
+    <ul class="socialLinks socialLinks--alt">
+        {{#each social_media}}
+            <li class="socialLinks-item">
+                <a class="icon icon--{{display_name}}"
+                   href="{{url}}"
+                   target="_blank"
+                   rel="noopener"
+                   title="{{{capitalize display_name}}}"
+                >
+                    <span class="aria-description--hidden">{{{capitalize display_name}}}</span>
+
+                    {{#if display_name "===" "facebook"}}
+                    <i class="fa-brands fa-facebook-f"></i>
+                    {{else if display_name "===" "instagram"}}
+                    <i class="fa-brands fa-instagram"></i>
+                    {{else if display_name "===" "twitter"}}
+                    <i class="fa-brands fa-twitter"></i>
+                    {{else}}
+                    <svg>
+                        <use href="#icon-{{display_name}}"/>
+                    </svg>
+                    {{/if}}
+                </a>
+            </li>
+        {{/each}}
+        <li class="socialLinks-item">
+            <a class="icon icon--{{display_name}}"
+                   href="{{url}}"
+                   target="_blank"
+                   rel="noopener"
+                   title="{{{capitalize display_name}}}"
+                >
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+        </li>
+    </ul>
+{{/if}}

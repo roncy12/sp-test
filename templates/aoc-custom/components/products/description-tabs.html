@@ -1,0 +1,89 @@
+<div class="container 4661726c6579" id="customed-product-tabs">
+   
+    <ul class="tabs product-tabs-parent" data-tab role="tablist">
+    
+    {{#eachIndex (split product.description '<!-- split -->')}}  
+    
+        {{#if index '==' '0' }}
+              <li class="tab is-active" role="presentational">
+                     <a class="tab-title" href="#tab-description" role="tab" tabindex="0" aria-selected="true" >Details <i class="fa-solid fa-chevron-down"></i></a>
+                </li>
+        {{/if}}
+        
+        {{#if index '==' '1' }} 
+                <li class="tab" role="presentational">
+                     <a class="tab-title" href="#tab-specifications" role="tab" tabindex="0" aria-selected="false">Specs <i class="fa-solid fa-chevron-down"></i></a>
+                </li>
+        {{/if}}
+        {{#if index '==' '2' }} 
+        <li class="tab" role="presentational">
+            <a class="tab-title" href="#tab-shipping-returns" role="tab" tabindex="0" aria-selected="false">Shipping & Returns <i class="fa-solid fa-chevron-down"></i></a>
+       </li>
+        {{/if}}
+    {{/eachIndex}}
+    <!-- <li class="tab" role="presentational" style="display: none">
+        <a class="tab-title" href="#tab-shipping-returns" role="tab" tabindex="0" aria-selected="false">Shipping & Returns</a>
+   </li> -->
+
+
+    </ul>
+
+    <div class="tabs-contents">
+    {{#eachIndex (split product.description '<!-- split -->')}}
+        {{#if index '==' '0' }}
+            <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active" id="tab-description">
+                <h2>Description</h2>
+                {{{item}}}
+
+                {{{value}}}
+            </div>
+        {{/if}}
+        {{#if index '==' '1' }} 
+            <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-specifications">
+                <h2>Specifications</h2>
+                {{{item}}}
+            </div>
+        {{/if}}
+
+        {{#if index '==' '2'}}
+            <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-shipping-returns">
+                {{{item}}}
+            </div>
+        {{/if}}
+    {{/eachIndex}}  
+
+    <!-- <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-shipping-returns" style="display: none;">
+        <h2>Shipping & Returns</h2>
+        <h4>Shipping Policy</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dolores facilis cum, quos id temporibus alias dolorem porro ducimus sunt ipsum reiciendis corporis consequuntur ad vitae? Accusantium quisquam consectetur illum corrupti! Dignissimos in ex officiis ipsum provident tempore, ratione et aut alias facilis voluptatibus aspernatur exercitationem aliquid, quibusdam, quis sed commodi ipsam sint deserunt mollitia sit? Aspernatur quaerat odit cupiditate molestiae laborum quod ratione, delectus ipsum error. Ab, corrupti fuga. Fugit maiores corporis tempore? Minima quasi veniam voluptate ullam minus incidunt temporibus dolorem modi itaque soluta corporis doloribus velit, illo doloremque sapiente! Atque dolorum officia alias cum, tenetur quaerat ipsa.</p>
+        <p>View our <a>Shipping Page</a> for more information.</p>
+
+        <h4>Return Policy</h4>
+        <p>Our goal is to make sure are satisfied with you purchase. If for any reason you would like to make a return, we will gladly accept undamaged and unused items back for up to 30 days from date of purchase. The only exception is any customized products (any items with the word "Custom" in the title) - since these items are made to order we are not able to accept them back for a return</p>
+    </div> -->
+
+
+
+    </div>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+
+
+

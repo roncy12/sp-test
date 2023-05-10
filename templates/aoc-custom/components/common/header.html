@@ -1,0 +1,101 @@
+<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+
+<header class="header" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+    {{> aoc-custom/components/common/navigation}}
+    <div class="logo_menu-container">
+        {{#if page_type '===' 'default'}}
+            <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </h1>
+        {{else}}
+            <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </div>
+        {{/if}}
+        <div class="navPages-container" id="menu" data-menu>
+            {{> aoc-custom/components/common/navigation-menu}}
+        </div>
+
+            <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
+                {{> components/common/quick-search name='nav-quick-search'}}
+            </div>
+            <ul class="navUser-section navUser-section--alt hfixed-show">
+            <li class="navUser-item">
+                <button class="navUser-action navUser-action--quickSearch"
+                            type="button"
+                            id="quick-search-expand"
+                            data-search="quickSearch"
+                            aria-controls="quickSearch"
+                            aria-label="{{lang 'common.search'}}"
+                        >
+                 <img src="{{cdn 'https://store-n4601wl9o4.mybigcommerce.com/content/header/icon%20-%20search.svg'}}" alt="Search Icon">
+                </button>
+            </li>
+            <li class="navUser-item navUser-item--account" style="display: none;">
+                {{#if customer}}
+                    <a class="navUser-action"
+                       href="{{urls.account.index}}"
+                       aria-label="{{lang 'common.account'}}"
+                    >
+                    <img src="{{cdn '../img/fixed-icon-accout.svg'}}" alt="header account icon" class="lazyload" width="23" height="20">
+                    </a>
+                    <a class="navUser-action"
+                       href="{{urls.auth.logout}}"
+                       aria-label="{{lang 'common.logout'}}"
+                       style="display: none;"
+                    >
+                        {{lang 'common.logout'}}
+                    </a>
+                {{else}}
+                    <a class="navUser-action"
+                       href="{{urls.auth.login}}"
+                       aria-label="{{lang 'common.login'}}"
+                    >
+                    <img src="{{cdn '../img/fixed-icon-accout.svg'}}" alt="header account icon" class="lazyload" width="23" height="20">
+                    </a>
+                    {{#if settings.account_creation_enabled}}
+                        <span class="navUser-or" style="display: none;">{{lang 'common.or'}}</span>
+                        <a class="navUser-action"
+                           href="{{urls.auth.create_account}}"
+                           aria-label="{{lang 'common.sign_up'}}"
+                           style="display: none;"
+                        >
+                            {{lang 'common.sign_up'}}
+                        </a>
+                    {{/if}}
+                {{/if}}
+            </li>
+            <li class="navUser-item navUser-item--cart" style="display: none;">
+                <a class="navUser-action"
+                   data-cart-preview
+                   data-dropdown="cart-preview-dropdown"
+                   data-options="align:right"
+                   href="{{urls.cart}}"
+                   aria-label="{{lang 'cart.nav_aria_label'}}"
+                >
+                    <span class="navUser-item-cartLabel" style="display: none;">{{lang 'common.cart'}}</span>
+                    <img src="{{cdn '../img/fixed-icon-cart.svg'}}" alt="cart shipping bag icon" width="18">
+                    <span class="countPill cart-quantity"></span>
+                </a>
+    
+                
+            </li>
+        </ul>
+        <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+    </div>
+    {{#if banners.top}}
+    <div class="banners" data-banner-location="top">
+        {{#each (limit banners.top_metadata 1)}}
+        <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+            <div data-event-type="promotion-click">
+                {{{this.content}}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+</header>
+

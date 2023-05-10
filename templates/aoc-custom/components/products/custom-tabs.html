@@ -1,0 +1,127 @@
+<div class="container 4661726c6579" id="customed-product-tabs">
+   
+    <ul class="tabs product-tabs-parent" data-tab role="tablist">
+    
+    {{#eachIndex (split product.description '<!-- split -->')}}  
+    
+        {{#if index '==' '0' }}
+            <!--{{ item.length }}-->
+        
+            {{#lengthEqual item 15}}
+
+            {{else}} 
+    
+                <li class="tab is-active" role="presentational">
+                     <a class="tab-title" href="#tab-overview" role="tab" tabindex="0" aria-selected="true" >Product Description</a>
+                </li>
+                
+            {{/lengthEqual}} 
+         
+        {{/if}}
+        
+        {{#if index '==' '1' }} 
+            <!--{{ item.length }}-->
+                    
+            {{#lengthEqual item 25}}
+
+            {{else}}
+       
+                <li class="tab" role="presentational">
+                     <a class="tab-title" href="#tab-specifications" role="tab" tabindex="0" aria-selected="false">Product Specifications</a>
+                </li>
+        
+            {{/lengthEqual}}    
+
+        {{/if}}
+        
+        {{#if index '==' '2' }}
+            <!--{{ item.length }}-->
+        
+            {{#lengthEqual item 19}}
+
+        {{else}}
+                
+                {{#lengthEqual item 18}}
+                
+                {{else}}
+
+                <li class="tab" role="presentational">
+                     <a class="tab-title" href="#tab-includes" role="tab" tabindex="0" aria-selected="false">Refills</a>
+                </li>
+                
+                {{/lengthEqual}}
+        
+            {{/lengthEqual}}          
+        {{/if}}
+        
+        {{#if index '==' '3' }}
+            <!--{{ item.length }}-->
+        
+            {{#lengthEqual item 19}}
+
+            {{else}}
+                
+                {{#lengthEqual item 17}}
+                
+                {{else}} 
+
+                <li class="tab" role="presentational">
+                     <a class="tab-title" href="#tab-discounts" role="tab" tabindex="0" aria-selected="false">Instructions</a>
+                </li>
+                
+                {{/lengthEqual}}
+        
+            {{/lengthEqual}}  
+        
+        {{/if}}
+        
+        {{#if index '==' '4' }} 
+        <!-- DO NOTHING -->
+        {{/if}}
+        
+    {{/eachIndex}}  
+
+    </ul>
+
+    <div class="tabs-contents">
+
+
+
+    {{#eachIndex (split product.description '<!-- split -->')}}
+
+
+
+        {{#if index '==' '0' }}
+
+            <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active" id="tab-overview">
+                {{{item}}}
+                {{index}}
+            </div>
+
+        {{/if}}
+
+        {{#if index '==' '1' }} 
+
+            <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-specifications">{{{item}}}</div>
+
+        {{/if}}
+
+        {{#if index '==' '2' }} 
+
+          <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-includes">{{{item}}}</div>
+
+        {{/if}}
+
+        {{#if index '==' '3' }} 
+          <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-discounts">{{{item}}}</div>
+        {{/if}}
+
+    {{/eachIndex}}  
+
+
+
+
+    </div>
+</div>
+
+

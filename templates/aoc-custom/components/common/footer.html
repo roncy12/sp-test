@@ -1,0 +1,366 @@
+{{#if banners.bottom}}
+    {{#if settings.data_tag_enabled}}
+        <div class="banners" data-banner-location="bottom">
+            {{#each (limit banners.bottom_metadata 1)}}
+                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                    <div data-event-type="promotion-click">
+                        {{{this.content}}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="banners" data-banner-location="bottom">
+            <div class="banner">
+                {{{limit banners.bottom 1}}}
+            </div>
+        </div>
+    {{/if}}
+
+{{/if}}
+
+{{#or (if template_file "==" "pages/home")(if template_file "==" "pages/category")(if template_file "==" "pages/product")}}
+<div class="social_media_section">
+    <div class="socmed_link">
+        <i class="fa-brands fa-instagram"></i> <a href="" class="instagram_link">Follow Us @ScrubPocket</a>
+    </div>
+   <div class="sm_flex_container">
+        <img src="https://cdn11.bigcommerce.com/s-n4601wl9o4/images/stencil/original/image-manager/social-media-5-2x.png?t=1682394904&_gl=1*oun16e*_ga*MTg3MDAxNzI4MC4xNjU4ODE4Mzk1*_ga_WS2VZYPC6G*MTY4MjM5NDgwNC41NTUuMC4xNjgyMzk0ODA0LjYwLjAuMA.." alt="social media image 1">
+        <img src="https://cdn11.bigcommerce.com/s-n4601wl9o4/images/stencil/original/image-manager/social-media-2-2x.png?t=1682394899&_gl=1*oun16e*_ga*MTg3MDAxNzI4MC4xNjU4ODE4Mzk1*_ga_WS2VZYPC6G*MTY4MjM5NDgwNC41NTUuMC4xNjgyMzk0ODA0LjYwLjAuMA.." alt="social media image 2">
+        <img src="https://cdn11.bigcommerce.com/s-n4601wl9o4/images/stencil/original/image-manager/social-media-4-2x.png?t=1682394901&_gl=1*oun16e*_ga*MTg3MDAxNzI4MC4xNjU4ODE4Mzk1*_ga_WS2VZYPC6G*MTY4MjM5NDgwNC41NTUuMC4xNjgyMzk0ODA0LjYwLjAuMA.." alt="social media image 3">
+        <img src="https://cdn11.bigcommerce.com/s-n4601wl9o4/images/stencil/original/image-manager/social-media-1-2x.png?t=1682394894&_gl=1*1s22lov*_ga*MTg3MDAxNzI4MC4xNjU4ODE4Mzk1*_ga_WS2VZYPC6G*MTY4MjM5NDgwNC41NTUuMC4xNjgyMzk0ODA0LjYwLjAuMA.." alt="social media image 4">
+        <img src="https://cdn11.bigcommerce.com/s-n4601wl9o4/images/stencil/original/image-manager/social-media-3-2x.png?t=1682394896&_gl=1*1s22lov*_ga*MTg3MDAxNzI4MC4xNjU4ODE4Mzk1*_ga_WS2VZYPC6G*MTY4MjM5NDgwNC41NTUuMC4xNjgyMzk0ODA0LjYwLjAuMA.." alt="social media image 5">
+   </div>
+</div>
+{{/or}}
+<div class="become_scrub_pocket_insider">
+    <div class="subscription_form_section">
+        {{#if settings.show_newsletter_box}}
+            {{> aoc-custom/components/common/subscription-form}}
+        {{/if}}
+    </div>
+</div>
+
+<footer class="footer" role="contentinfo">
+    <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
+    <div class="container">
+
+            <article class="footer-info-col
+                footer-info-col--social
+                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
+                data-section-type="footer-webPages" style="display: none;">
+                    <h3 class="footer-info-heading">{{lang 'social.connect'}}</h3>
+                    {{> components/common/social-links}}
+            </article>
+ 
+        <section class="footer-info">
+            <article class="footer-info-col" data-section-type="have-question">
+                <img class="footer_logo" src="{{cdn 'https://store-n4601wl9o4.mybigcommerce.com/content/header/scrub_pocket-logo.svg'}}" alt="Scrub Pocket Logo">
+                <div class="question-footer">
+                    <p>Have a question?</p>
+                    <span>860.310.5608<br>M-F, 8-5 EST<br></span>
+                    <a href="mailto:support@scrubpocket.com">support@scrubpocket.com</a>
+                </div>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading">Customer Support</h3>
+                <ul class="footer-info-list">
+                    <li>
+                        <a href="">Bulk Order</a>
+                    </li>
+                    <li>
+                        <a href="">Purchase Orders</a>
+                    </li>
+                    <li>
+                        <a href="">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="">Order Tracking</a>
+                    </li>
+                    <li>
+                        <a href="">Shipping</a>
+                    </li>
+                    <li>
+                        <a href="">Returns</a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading">Company</h3>
+                <ul class="footer-info-list">
+                    <li>
+                        <a href="/our-story/">Our Story</a>
+                    </li>
+                    <li>
+                        <a href="">Badge Buddy Guide</a>
+                    </li>
+                    <li>
+                        <a href="">Custom Printing & Design</a>
+                    </li>
+                    <li>
+                        <a href="">Tertimonials</a>
+                    </li>
+                    <li>
+                        <a href="/contact-us/">Contact Us</a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading">Programs</h3>
+                <ul class="footer-info-list">
+                    <li>
+                        <a href="">Wholesale</a>
+                    </li>
+                    <li>
+                        <a href="">Fundraising</a>
+                    </li>
+                    <li>
+                        <a href="">Affiliates</a>
+                    </li>
+                </ul>
+            </article>
+            <article class="footer-info-col footer-info-col--small" data-section-type="socialMedia-links">
+                {{> components/common/social-links}}
+                <p>Scrub Pocket products proudly made in the USA</p>
+                <img src="{{cdn 'https://store-n4601wl9o4.mybigcommerce.com/content/header/USA%20Flag.svg'}}" alt="USA FLAG ICON">
+            </article>
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages" style="display: none">
+                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
+                <ul class="footer-info-list">
+                    {{#each pages}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                    <li>
+                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories" style="display: none">
+                <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
+                <ul class="footer-info-list">
+                    {{#each categories}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </article>
+
+            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands" style="display: none">
+                <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
+                <ul class="footer-info-list">
+                    {{#each shop_by_brand}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                </ul>
+            </article>
+            {{/and}}
+
+            {{#if settings.address}}
+            <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+                <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
+                <address>{{nl2br settings.address}}</address>
+                {{#if settings.phone_number}}
+                    <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
+                {{/if}}
+            </article>
+            {{/if}}
+            <article class="footer-info-col" data-section-type="newsletterSubscription" style="display: none;">
+                {{#if settings.show_newsletter_box}}
+                    {{> components/common/subscription-form}}
+                {{/if}}
+                {{> components/common/payment-icons}}
+            </article>
+        </section>
+
+    </div>
+    {{{region name="ssl_site_seal--global"}}}
+</footer>
+<div class="post-footer-con">
+<div class="container post-footer">
+    <div class="copyright-section">
+        {{#if theme_settings.show_copyright_footer}}
+            <div class="footer-copyright">
+                <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+            </div>
+        {{/if}}
+        {{#if theme_settings.show_powered_by}}
+            <div class="footer-copyright">
+                <p class="powered-by">{{lang 'footer.powered_by'}} <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
+            </div>
+        {{/if}}
+    </div>
+    <div class="post-footer-links">
+        <ul>
+            <li>
+                <a href="">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="">Terms & Conditions</a>
+            </li>
+            <li>
+                <a href="">Sitemap</a>
+            </li>
+            <li>
+                <a href="">Web Design</a> by efelle
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top" style="display: block;">
+    <i class="fa fa-chevron-up gg-chevron-up"></i>
+</button>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    var lastScrollTop = 0;
+    window.addEventListener("scroll", function(){ 
+    var st = window.pageYOffset || document.documentElement.scrollTop; 
+    var navPage = document.getElementsByClassName("header");
+
+    var StoreLogo =  document.getElementById("store--logo");
+
+    if(st==0){
+        for (let i = 0; i < navPage.length; i++) {
+            const div = navPage[i];
+            div.classList.remove("header-fixed");
+                $("#store--logo").attr("src", "https://store-n4601wl9o4.mybigcommerce.com/content/header/scrub_pocket-logo.svg");
+                $("#store--logo").attr("srcset", "https://store-n4601wl9o4.mybigcommerce.com/content/header/scrub_pocket-logo.svg");      
+        }
+    }else{
+        for (let i = 0; i < navPage.length; i++) {
+            const div = navPage[i];
+            div.classList.add("header-fixed");
+     
+                $("#store--logo").attr("src", "https://store-n4601wl9o4.mybigcommerce.com/content/header/header-fixed-logo.svg");
+                $("#store--logo").attr("srcset", "https://store-n4601wl9o4.mybigcommerce.com/content/header/header-fixed-logo.svg");
+
+            
+        }
+    }
+
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    }, false);
+</script>
+
+
+<script>
+    $(document).ready(function(){
+        function checkResize(){
+            if($(this).width() >= 1075){
+                $(".navPages .navPages-list li.navPages-item").addClass('desktop-hover').on('mouseover', function(){
+                    // By Default
+                    $(".navPages .navPages-list li").removeClass("active");
+                    $(".navPages .navPages-list li .navPages-action.has-subMenu").removeClass("is-open").attr("aria-expanded","false");
+                    $(".navPages .navPages-list li .navPage-subMenu").removeClass("is-open").attr("aria-hidden","true");
+                    // Mouseover event
+                    $(this).addClass("active");
+                    $(this).find(".navPages-action.has-subMenu").addClass("is-open").attr("aria-expanded","true");
+                    $(this).find(".navPage-subMenu").addClass("is-open").attr("aria-hidden","false").slideDown(500);
+                }).on('mouseleave', function(){
+                    // Mouseleave event
+                        $(this).removeClass("active");
+                        $(this).find(".navPages-action.has-subMenu").removeClass("is-open").attr("aria-expanded","false");
+                        $(this).find(".navPage-subMenu").removeClass("is-open").attr("aria-hidden","true");
+                });
+
+
+                $(".navPage-subMenu-list .navPage-subMenu-item").on('mouseover', function(){
+                    $(this).addClass("is-active");
+                
+                }).on('mouseleave', function(){
+                    $(this).removeClass("is-active");
+                });
+            }else{
+                $(".navPages .navPages-list li.navPages-item").removeClass('desktop-hover');
+            }
+        }
+
+        checkResize();
+
+        $(window).resize(function(){
+            checkResize();
+        });
+
+        $(".navUser-action.navUser-action--quickSearch").on('click', function(){
+            $(".header.is-open .navPages-container.is-open .navPages-quickSearch").toggleClass("show");
+        });
+        
+        $(".mobileMenu-toggle").click(function () {
+            if($(this).hasClass('className')){
+                
+            }
+
+        });
+    });
+</script>
+<style>
+    li.navPage-subMenu-item.is-active .navPage-subMenu-action {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 0;
+        padding-bottom: 0;
+        row-gap: 1rem;
+        margin-bottom: 0;
+    }
+    .navPage-subMenu-item.is-active .navPage-subMenu-action .category_name{
+        margin-top: 10px;
+    }
+    li.navPage-subMenu-item.is-active,li.navPage-subMenu-item.is-active .navPage-subMenu-action{
+        position: relative;
+    }
+
+    li.navPage-subMenu-item .navPage-subMenu-action {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 0;
+        padding-bottom: 0;
+        row-gap: 1rem;
+        margin-bottom: 0;
+    }
+
+    li.navPage-subMenu-item.is-active a img {
+        transition: all 700ms;
+    }
+
+
+</style>
+
+<script>
+    window.onscroll = function() {
+      scrollFunction()
+    };
+                
+    var navbar = document.getElementById("stick-navbar");
+                
+    function scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        document.getElementById("myBtn").style.display = "block";
+
+      } else {
+        document.getElementById("myBtn").style.display = "none";
+
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+</script>
