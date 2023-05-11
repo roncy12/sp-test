@@ -72,9 +72,11 @@
         position: absolute;
         top: 1.05%;
         right: 0;
+        width: 20%;
     }
     .float-right .pagination{
         float: right;
+        width: 20%;
     }
     .page-sidebar {
         padding: 0 5% 0 0;
@@ -665,4 +667,8 @@ span.title-icon:hover .fa-question-circle {
 
 .spec-caption {
     text-align: center;
+}
+
+.body.cssCategory .rightside-pagination nav.pagination.paginationonlast {
+    top: 3.5%;
 }

@@ -7,6 +7,9 @@
         margin-top: 4rem;
     }
 }
+.header{
+    z-index: 9999;
+}
 h1, h2, h3, h4, h5 ,h6, p, li, span, a{
     font-family: 'PT Sans';
     color: #212326;
@@ -192,6 +195,7 @@ ul.footer-info-list li {
 
     @media screen and (max-width: 999px) {
         justify-content: center;
+        row-gap: 1rem;
     }
 
     @media screen and (max-width: 550px) {
@@ -258,6 +262,10 @@ header.header.header-fixed  a.header-logo__link img {
         z-index: 99;
         justify-content: space-between;
         padding-bottom: 0;
+        @media screen and (min-width: 1921px) {
+            max-width: 1440px;
+        }
+
         & > button#quick-search-expand {
             padding-top: 1.0125rem;
         }
@@ -458,6 +466,10 @@ a.navPages-action.has-subMenu {
 
 .footer{
     padding: 7rem 0 3rem;
+    @media screen and (min-width: 1921px) {
+    max-width: 1440px;
+    margin: 0 auto;
+    }
 }
 
 .become_scrub_pocket_insider {
@@ -468,6 +480,9 @@ a.navPages-action.has-subMenu {
 .become_scrub_pocket_insider .subscription_form_section {
     width: 60%;
     margin: 0 auto;
+    @media screen and (min-width: 1921px) {
+    max-width: 1440px;
+    }
 }
 .become_scrub_pocket_insider .subscription_form_section h3 {
     color: #fff;
@@ -569,10 +584,8 @@ footer.footer .container {
     padding: 1.35rem 1rem;
 }
 .pracical-tools-container {
-    padding: 3.5rem 2.5rem;
+    padding: 4.5rem 2.5rem;
     text-align: center;
-    // border-bottom: dashed;
-    // border: 2px dashed #A2A2A2;
 }
 
 .pracical-tools-container  h2, .pracical-tools-container p{
@@ -597,6 +610,8 @@ footer.footer .container {
 
 .pracical-tools-container a {
     text-transform: uppercase;
+    display: table;
+    margin: 3rem auto 0;
 }
 
 .pocket-tips-section {
@@ -1617,6 +1632,9 @@ ol.breadcrumbs {
     width: 86%;
     margin: 0 auto;
     text-align: left;
+    @media screen and (min-width: 1921px) {
+    max-width: 1440px;
+    }
 }
 .centered-content h2 {
     font-family: 'PT Sans';
@@ -1909,7 +1927,7 @@ input:focus, button:focus, textarea:focus, select:focus, details:focus, [href]:f
     outline: 0px solid transparent !important;
 }
 
-@media screen and (min-width: 801px) and (max-width: 1074px){
+@media screen and (min-width: 801px) and (max-width: 1075px){
     .header-fixed .header-logo.header-logo--center {
         margin-left: 5rem;
     }
@@ -2088,7 +2106,7 @@ input:focus, button:focus, textarea:focus, select:focus, details:focus, [href]:f
 }
 .heroCarousel-slide .heroCarousel-image-wrapper{
     height: auto !important;
-    max-height: unset !important;
+    max-height: 100vh !important;
 }
 
 .cssCategory .page, .cssCategory .title-description-content {
@@ -2205,6 +2223,7 @@ nav[aria-label="Breadcrumb"]{
 //=========================================================
 .better-in-numbers-section.custom-printing-design {
     margin-bottom: 0.5rem;
+    margin-top: 10rem;
 }
 .body.Custom-printing-design{
     margin-bottom: 0;
@@ -2220,6 +2239,7 @@ nav[aria-label="Breadcrumb"]{
 }
 .pocket-tips-section .text-section ul {
     padding: 0 10%;
+    list-style: none;
 }
 .pocket-tips-section .text-section ul li strong::before {
     font-family: "Font Awesome 5 Free";
@@ -2262,4 +2282,137 @@ nav[aria-label="Breadcrumb"]{
         background: #F8F8F8;
         color: #E50038;
     }
+}
+
+.standard-badge-card {
+    background: #0070BC;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 88%;
+    margin: 5rem auto 0;
+
+    @media screen and (max-width: 1260px){
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 2rem;
+    }
+    @media screen and (max-width: 800px) {
+        padding: 0;
+    }
+}
+.standard-badge-card .card-box {
+    width: 16%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (max-width: 1260px) {
+        width: 33%;
+    }
+    @media screen and (max-width: 800px) {
+        width: 50%;
+    }
+}
+.cardimage {
+    height: 59px;
+}
+.standard-badge-card .card-box h2 {
+    margin: 1.25rem 0;
+    font-size: 25px;
+    color: #fff;
+}
+.standard-badge-card .card-box p {
+    color: #fff;
+    font-size: 16px;
+}
+.standard-badge-card-design-container {
+    background: #0070BC;
+    text-align: center;
+    padding: 4% 0;
+
+    @media screen and (max-width: 800px) {
+        padding: 10% 5%;
+    }
+}
+.standard-badge-card-design-container h2 {
+    color: #fff;
+    font-size: 36px;
+    line-height: 1.2;
+}
+.standard-badge-card-design-container p {
+    color: #fff;
+    font-size: 18px;
+}
+
+.standard-badge-card-design-container{
+    position: relative;
+    margin-top: 8rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 100px 0 100px 70px;
+        border-color: transparent transparent transparent #fff;
+        transform: rotate(90deg);
+        top: -130px;
+        transform: translateX(-50%);
+        transform-origin: left;
+        transform: translateX(-50%) rotate(90deg);
+
+        @media screen and (max-width: 800px) {
+            transform: translateX(0%) rotate(90deg);
+        }
+    }
+}
+
+
+.body.cssCMSPage .page-content--centered {
+    @media screen and (min-width: 1921px) {
+        max-width: 1440px;
+    }
+}
+
+.pocket-tips-section .text-section ul li br{
+    @media screen and (max-width: 1309px) {
+        display: none;
+    }
+}
+
+.body.cssCMSPage .banner-page-heading-container .page-heading br, .standard-badge-card .card-box p br {
+    @media screen and (max-width: 800px) {
+        display: none;
+    }
+}
+
+.standard-badge-card .card-box {
+    @media screen and (max-width: 550px) {
+        width: 99%;
+    }
+}
+
+.pocket-tips-section h2 br{
+    @media screen and (max-width: 800px) {
+        display: none;
+    } 
+}
+
+.slick-slide[data-hero-slide="1"] {
+    float: left;
+    height: auto !important;
+}
+
+.standard-badge-card .card-box:nth-child(4) p br:nth-child(1) {
+    @media screen and (max-width: 1209px) {
+        display: none;  
+    }
+}
+
+.instagram_link:hover {
+    color: #0070bc;
+    text-decoration: none;
 }
