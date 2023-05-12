@@ -166,16 +166,28 @@
                     </div>
                 </div> -->
                 <div class="ship-stock_container">
-                    {{{region name="stock--image"}}}
+                    {{{region name="stock_image--global"}}}
                     <div>
-                        <div class="in-stock-label"> {{{region name="stock--label"}}}</div>
-                        <div class="ships-label"> {{{region name="ships-label"}}}</div>
+                        <div class="in-stock-label"> {{{region name="stock_label--global"}}}</div>
+                        <div class="ships-label"> {{{region name="ships_label--global"}}}</div>
                     </div>
                 </div>
-
-
             </div>
-
+            
+            <div id="customField_text" style="display: none;">
+                    {{#each product.custom_fields}}
+                        {{#if name '===' 'stock-label'}}
+                            <div id="stock-label">
+                                {{{value}}}
+                            </div>
+                        {{/if}}
+                        {{#if name '===' 'ships-label'}}
+                            <div id="ships-label">
+                                {{{value}}}
+                            </div>
+                        {{/if}}
+                    {{/each}}
+            </div>
             <div class="desktop-bulk-pricing">
                 {{assignVar "prodprice" product.price.without_tax.value}}
 

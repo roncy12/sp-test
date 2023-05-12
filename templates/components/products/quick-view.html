@@ -1,28 +1,7 @@
-<div class="modal-body quickView modalQuickView">
+<div class="modal-body quickView">
     {{> components/products/product-view}}
 
     {{#all settings.show_product_reviews theme_settings.show_product_reviews (if theme_settings.show_product_details_tabs '!==' true)}}
         {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
     {{/all}}
 </div>
-
-
-<script>
-// $('button.button.button--small.card-figcaption-button.quickview').each(function(){
-//     $(this).click(function(){
-//         setTimeout(function(){
-//             // $('.modal-body.quickView').parent().parent().addClass('quickViewModal');
-//             $('.modal-body.quickView').css("background","red");
-//         }, 5000);
-
-//     })
-// });
-
-// $('button.button.button--small.card-figcaption-button.quickview').click(function(){
-//     setTimeout(function(){
-//         $('body').find('#modal.modal--large.open').addClass('quickViewModal');
-//     }, 5000);
-// });
-
-
-</script>

@@ -2405,13 +2405,6 @@ nav[aria-label="Breadcrumb"]{
     float: left;
     height: auto !important;
 }
-
-.standard-badge-card .card-box:nth-child(4) p br:nth-child(1) {
-    @media screen and (max-width: 1209px) {
-        display: none;  
-    }
-}
-
 .instagram_link:hover {
     color: #0070bc;
     text-decoration: none;

@@ -33,21 +33,25 @@
         {{#if index '==' '0' }}
             <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active" id="tab-description">
                 <h2>Description</h2>
+                <div class="tabitem">
                 {{{item}}}
-
-                {{{value}}}
+                </div>
             </div>
         {{/if}}
         {{#if index '==' '1' }} 
             <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-specifications">
                 <h2>Specifications</h2>
+                <div class="tabitem">
                 {{{item}}}
+                </div>
             </div>
         {{/if}}
 
         {{#if index '==' '2'}}
             <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-shipping-returns">
+                <div class="tabitem">
                 {{{item}}}
+                </div>
             </div>
         {{/if}}
     {{/eachIndex}}  

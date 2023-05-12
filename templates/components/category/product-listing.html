@@ -28,7 +28,7 @@
         <p class="displays_count font-weight-bold"><span class="category_count"><span class="pagination_count">{{pagination.category.end}}</span> <span class="not-pagination-count">{{category.total_products}}</span></span> OF {{category.total_products}} PRODUCTS</p>
     </div>
     <div class="float-right">
-        {{> aoc-custom/components/common/paginator pagination.category}}
+        {{> components/common/paginator pagination.category}}
     </div>
 {{else}}
     {{#if category.search_error}}
@@ -62,7 +62,7 @@
         $(".pagination_count").hide();
         $(".not-pagination-count").show();
     }
-
+    
     $('.rightside-pagination .pagination-item--current .pagination-link.last_number').parent().parent().parent().addClass('paginationonlast');
     
 </script>
